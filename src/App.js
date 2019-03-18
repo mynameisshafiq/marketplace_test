@@ -8,6 +8,8 @@ import MarketPage from './pages/MarketPage';
 import Navbar from './components/Navbar';
 import "./App.css";
 
+export const UserContext = React.createContext();
+
 class App extends React.Component {
   state = {
     user: null
@@ -53,6 +55,7 @@ class App extends React.Component {
   render() {
     const { user } = this.state;
     return !user ? <Authenticator theme={theme} /> : (
+      <UserContext.Provider value={{ user }}>
       <Router>
         <>
           {/* Navigation */}
@@ -67,6 +70,7 @@ class App extends React.Component {
           </div>
         </>
       </Router>
+      </UserContext.Provider>
     );
   }
 }
