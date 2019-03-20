@@ -14,7 +14,7 @@ const MarketList = () => {
       newData.onCreateMarket,
       ...prevQuery.listMarkets.items
     ]
-    updatedQuery.listMarkets.item = updatedMarketList;
+    updatedQuery.listMarkets.items = updatedMarketList;
     return updatedQuery;
   }
 
